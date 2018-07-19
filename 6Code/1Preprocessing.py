@@ -44,5 +44,3 @@ df_Test = df_Test.sort_values(by="id")
 df_Train.head()
 
 # Checking for missing values/Imputation if necessarry
-
-# %%
