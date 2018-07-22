@@ -137,6 +137,7 @@ def annotate(g, location='Top', message='Count', fontsize=None):
         # for each.
         if message == 'Count':
             units = ""  # Units adds a suffix to the message
+<<<<<<< HEAD
             if np.isnan(height):
                 value = 0
             else:
@@ -147,14 +148,24 @@ def annotate(g, location='Top', message='Count', fontsize=None):
                 value = 0.0
             else:
                 value = 100.*height/total
+=======
+            value = int(height)
+            formating = '{:d}'
+        elif message == 'Percentage':
+            value = 100.*height/total
+>>>>>>> 4649d1ad83c9fe6588ce0c770a8b5aa5f742c597
             units = " %"
             formating = '{:1.1f}'
         elif message == 'Float':
             units = ''
+<<<<<<< HEAD
             if np.isnan(height):
                 value = 0
             else:
                 value = float(height)
+=======
+            value = float(height)
+>>>>>>> 4649d1ad83c9fe6588ce0c770a8b5aa5f742c597
             formating = '{:1.2f}'
 
         # Next we determine where the annotations should be located.
