@@ -22,7 +22,7 @@ path_ProcessedData = path_Base+"2ProcessedData/"
 
 # Paths for Mayur
 # path_Base = "/Users/mayur/Documents/GitHub/What-s-Cooking-/"
-# path_RawData = path_Base1+"1RawData/"
+# path_RawData = path_Base+"1RawData/"
 # path_ProcessedData = path_Base+"2ProcessedData/"
 
 filename_Train = "train.json"
@@ -56,8 +56,8 @@ df_Test = df_Test[["id", "ingredients"]]
 
 # %% Sorting the dataframe by ID
 
-df_Train = df_Train.sort_values(by="id")
-df_Test = df_Test.sort_values(by="id")
+df_Train.sort_values(by="id", inplace=True)
+df_Test.sort_values(by="id", inplace=True)
 
 # %% Resetting the index
 
@@ -88,6 +88,7 @@ else:
 
 sns.set_style("darkgrid")
 sns.set_context({"figure.figsize": (15, 8)})
+sns.set(font_scale=1.5)
 sns.heatmap(df_Train.isnull(), cbar=False)
 
 # %% Other way of visualizing missing values
