@@ -137,16 +137,6 @@ def annotate(g, location='Top', message='Count', fontsize=None):
         # for each.
         if message == 'Count':
             units = ""  # Units adds a suffix to the message
-            if np.isnan(height):
-                value = 0
-            else:
-                value = int(height)
-            formating = '{:d}'
-        elif message == 'Percentage':
-            if np.isnan(height):
-                value = 0.0
-            else:
-                value = 100.*height/total
             value = int(height)
             formating = '{:d}'
         elif message == 'Percentage':
@@ -155,10 +145,6 @@ def annotate(g, location='Top', message='Count', fontsize=None):
             formating = '{:1.1f}'
         elif message == 'Float':
             units = ''
-            if np.isnan(height):
-                value = 0
-            else:
-                value = float(height)
             value = float(height)
             formating = '{:1.2f}'
 
