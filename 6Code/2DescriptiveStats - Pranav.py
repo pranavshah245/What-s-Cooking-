@@ -63,6 +63,9 @@ ax.set_xlabel("Cuisines", fontsize=18)
 ax.set_ylabel("Number of Records", fontsize=18)
 ax.set_xticklabels(labels=list_cusinies, rotation=90)
 ax.legend(loc="upper right")
+ax.text(.75, .9, "Total Records: "+str(len(df_Train)), fontsize=16,
+        horizontalalignment='left', verticalalignment='center',
+        transform=ax.transAxes)
 ssa.annotate(ax, location='Top', message='Count', fontsize=12)
 ssa.annotate(ax, location='Middle', message='Percentage', fontsize=12)
 plt.title("Number of Records for each Cuisine", fontsize=18)
@@ -185,6 +188,12 @@ def top10plot(df, cuisine):
     ax.set_ylabel("Frequency", fontsize=18)
     ax.set_xticklabels(labels=list(df['Ingredient'][:10]), rotation=90)
     ax.legend(loc="upper right")
+    ax.text(.75, .9, "Total Ingredients: "+str(len(df)), fontsize=16,
+            horizontalalignment='left', verticalalignment='center',
+            transform=ax.transAxes)
+    ax.text(.75, .8, "Total Occurrences: "+str(sum(df['Count'])), fontsize=16,
+            horizontalalignment='left', verticalalignment='center',
+            transform=ax.transAxes)
     ssa.annotate(ax, location='Top', message='Count', fontsize=12)
     ssa.annotate(ax, location='Middle', message='Percentage', fontsize=12)
     plt.title("Number of Records for Top-10 Ingredients for " +
