@@ -214,4 +214,8 @@ top10plot(ingredients(sliceByCuisine(df_Train, cuisine='mexican')),
 top10plot(ingredients(sliceByCuisine(df_Train, cuisine='italian')),
           cuisine='italian')
 
+# %% Saving the dataframe of individual ingredients for all cuisines as a CSV
+
+ingredients(df_Train).to_csv(path_ProcessedData+"Ingredients.csv", index=False)
+
 # %%
