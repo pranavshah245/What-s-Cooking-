@@ -7,7 +7,6 @@ Created on Mon Jul 16 22:17:20 2018
 
 # %% Library imports
 
-import numpy as np
 import pandas as pd
 import time
 import datetime
@@ -65,22 +64,25 @@ df_Test = df_Test.sort_values(by="id")
 df_Train.reset_index(inplace=True, drop=True)
 df_Test.reset_index(inplace=True, drop=True)
 
-# %% Checking the column fetaures
-
-list_cusinies = list(df_Train['cuisine'].unique())
-freq_cuisines = df_Train['cuisine'].value_counts()
-
 # %% Checking for missing values
 
 null_ID = df_Train['id'].isnull().sum()
 null_Cuisine = df_Train['cuisine'].isnull().sum()
 null_Ingredients = df_Train['ingredients'].isnull().sum()
 
-# %% Saniry Check
+# %% Missing Values Test Case
+
 if(null_ID == null_Cuisine == null_Ingredients and null_Cuisine == 0):
     print("Test Case for Null Values passed")
 else:
     print("Null values are supposed to be treated")
+    # If Cuisine column is having NaN values more than 30% of the column length
+    if null_Cuisine > 0.3*len(df_Train['Cuisine']):
+        # Replace it with most frequently occuring cuisine
+        df_Train.filna(df_Train['cuisine'].value_counts().idxmax())
+    else:
+        # Drop those rows
+        df_Train.dropna(inplace=True)
 
 # %% Visualizing the NaN presence with plots
 
@@ -102,5 +104,10 @@ if(length_original == length_treated):
     print("No Null values removed.")
 else:
     print(abs(length_original - length_treated)+" Null values are removed.")
+
+# %% Writing the processed dataframes as a CSV
+
+df_Train.to_csv(path_ProcessedData+"Train.csv", index=False)
+df_Test.to_csv(path_ProcessedData+"Test.csv", index=False)
 
 # %%
