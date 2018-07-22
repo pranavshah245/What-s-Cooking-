@@ -101,11 +101,7 @@ def sliceByCuisine(df, cuisine='indian'):
     """
     # Slice it by cuisine type and process the indices.
     df_return = df[df['cuisine'] == cuisine]
-<<<<<<< HEAD
     df_return.sort_values(by="id", inplace=True)
-=======
-    df_return.sort_values(by="Ingredient", inplace=True)
->>>>>>> 4649d1ad83c9fe6588ce0c770a8b5aa5f742c597
     df_return.reset_index(inplace=True, drop=True)
 
     # Return the dataframe
