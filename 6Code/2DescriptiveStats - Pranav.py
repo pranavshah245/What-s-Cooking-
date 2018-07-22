@@ -11,9 +11,11 @@ import pandas as pd
 import time
 import datetime
 import seaborn as sns
-import ssaplot as ssa
 import matplotlib.pyplot as plt
 import ast
+
+# User defined modules
+import ssaplot as ssa
 
 # %% Setup path and file names
 
