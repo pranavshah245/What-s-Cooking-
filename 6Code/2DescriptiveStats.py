@@ -59,7 +59,7 @@ counterForIngredients = Counter()
 for i in range(len(df_Train)):
     counterForIngredients.update(df_Train.loc[i][1])
 
-counterMostCommon = counterForIngredients.most_common(10)
+counterMostCommon = counterForIngredients.most_common(12)
 
 x, y = zip(*counterMostCommon)
 
