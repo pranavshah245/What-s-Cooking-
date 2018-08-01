@@ -5,7 +5,7 @@ Created on Mon Jul 16 22:39:28 2018
 @author: Pranav
 """
 
-# %% Library imports
+#  Library imports
 
 import pandas as pd
 import time
@@ -17,22 +17,28 @@ import ast
 # User defined modules
 import ssaplot as ssa
 
-# %% Setup path and file names
+#  Setup path and file names
 
 # Paths for Pranav
+#path_Base = "C:/My Data/Projects/Kaggle/What-s-Cooking-/"
+#path_ProcessedData = path_Base+"2ProcessedData/"
+"""
 path_Base = "C:/My Data/Projects/Kaggle/What-s-Cooking-/"
+path_ProcessedData = ("C:/My Data/Projects/Kaggle/What-s-Cooking-/" +
+                      "2ProcessedData/")
+
+
+path_Insights = path_Base+"3Insights/"
+"""
+# Paths for Mayur
+path_Base = "/Users/mayur/Documents/GitHub/What-s-Cooking-/"
 path_ProcessedData = path_Base+"2ProcessedData/"
 path_Insights = path_Base+"3Insights/"
-
-# Paths for Mayur
-# path_Base = "/Users/mayur/Documents/GitHub/What-s-Cooking-/"
-# path_ProcessedData = path_Base+"2ProcessedData/"
-# path_Insights = path_Base+"3Insights/"
 
 filename_Train = "Train.csv"
 filename_Test = "Test.csv"
 
-# %% Load Data
+#  Load Data
 
 print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
       "Start of Reading the Dataframe")
@@ -48,12 +54,12 @@ print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
 
 print("Total Time to Read the DataFrames: "+str(TotalReadTime)+" seconds.")
 
-# %% Checking the column fetaures
+#  Checking the column fetaures
 
 list_cusinies = list(df_Train['cuisine'].unique())
 freq_cuisines = df_Train['cuisine'].value_counts()
 
-# %% Visualizing the column features
+#  Visualizing the column features
 
 sns.set_style("darkgrid")
 sns.set_context({"figure.figsize": (15, 8)})
@@ -74,7 +80,7 @@ plt.savefig(path_Insights+"Number of Records for each Cuisine.png")
 plt.show()
 plt.clf()
 
-# %% Refactoring 'ingredients' column
+#  Refactoring 'ingredients' column
 
 df_Train['ingredients'] = df_Train['ingredients'].apply(
         lambda x: ast.literal_eval(x))
@@ -83,7 +89,7 @@ df_Train['NumberOfIngredients'] = df_Train['ingredients'].apply(
         lambda x: len(x))
 
 
-# %% Function to slice the dataframe by cuisine type
+#  Function to slice the dataframe by cuisine type
 
 def sliceByCuisine(df, cuisine='indian'):
     """
@@ -113,7 +119,7 @@ def sliceByCuisine(df, cuisine='indian'):
     return(df_return)
 
 
-# %% Function to create a dataframe with these Ingredients & their counts.
+#  Function to create a dataframe with these Ingredients & their counts.
 
 def ingredients(df):
     """
@@ -162,7 +168,7 @@ def ingredients(df):
     return(df_ingredients)
 
 
-# %% Function to visualize Top-10 ingredients of a given cuisine
+#  Function to visualize Top-10 ingredients of a given cuisine
 
 def top10plot(df, cuisine):
     """
@@ -204,8 +210,7 @@ def top10plot(df, cuisine):
     plt.show()
     plt.clf()
 
-
-# %% Visualizing the Top-10 ingredients for the different dataframes
+#  Visualizing the Top-10 ingredients for the different dataframes
 
 top10plot(ingredients(df_Train), cuisine='all')
 top10plot(ingredients(sliceByCuisine(df_Train)), cuisine='indian')
@@ -214,8 +219,8 @@ top10plot(ingredients(sliceByCuisine(df_Train, cuisine='mexican')),
 top10plot(ingredients(sliceByCuisine(df_Train, cuisine='italian')),
           cuisine='italian')
 
-# %% Saving the dataframe of individual ingredients for all cuisines as a CSV
+#  Saving the dataframe of individual ingredients for all cuisines as a CSV
 
-ingredients(df_Train).to_csv(path_ProcessedData+"Ingredients.csv", index=False)
+#ingredients(df_Train).to_csv(path_ProcessedData+"Ingredients.csv", index=False)
 
-# %%
+# 
