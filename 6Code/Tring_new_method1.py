@@ -15,14 +15,13 @@ from sklearn.svm import SVC
 import pandas as pd
 import json
 
-# Dataset Preparation
+
 print ("Read Dataset ... ")
 def read_dataset(path):
 	return json.load(open(path)) 
 train = read_dataset('/Users/mayur/Documents/GitHub/What-s-Cooking-/1RawData/train.json')
 test = read_dataset('/Users/mayur/Documents/GitHub/What-s-Cooking-/1RawData/test.json')
 
-# Text Data Features
 print ("Prepare text data of Train and Test ... ")
 def generate_text(data):
 	text_data = [" ".join(doc['ingredients']).lower() for doc in data]
