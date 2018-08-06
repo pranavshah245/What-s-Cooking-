@@ -87,21 +87,13 @@ classifier = SVC(C=100,
 	      		 cache_size=200,
 	      		 class_weight=None,
 	      		 verbose=False, 
-	      		 max_iter=-1, 
+	      		 max_iter=1, 
           		 decision_function_shape=None,  
           		 random_state=None)
 model = OneVsRestClassifier(classifier)
 
-from sklearn.preprocessing import MinMaxScaler
-scaling = MinMaxScaler(feature_range=(-1,1)).fit(X)
-X = scaling.transform(X)
-
-
-
-type(y_train)
 model.fit(X, y_train)
 
-X_test = scaling.transform(X_test)
-y_pred = model.predict(count_vect.transform(X_test))
+y_pred = model.predict(tfidf.transform(X_test))
 
 print(accuracy_score(y_test, y_pred))
