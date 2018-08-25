@@ -27,21 +27,22 @@ df_Test = df_test[["id", "ingredients"]]
 c1 = ['thai', 'cajun_creole', 'greek']
 for i in range(len(c1)):
     df1 = df[df['cuisine']== c1[i]]
-    df = pd.concat([df,df1,df1,df1],ignore_index = True)
+    df = pd.concat([df,df1],ignore_index = True)
 
 
 c2 = ['spanish', 'jamaican', 'russian', 'irish', 'moroccan', 'korean' , 
       'filipino' , 'vietnamese' , 'british' , 'brazilian', 'japanese']
 for i in range(len(c2)):
     df1 = df[df['cuisine']== c2[i]]
-    df = pd.concat([df,df1,df1,df1, df1],ignore_index = True)
+    df = pd.concat([df,df1,df1],ignore_index = True)
 
-   
+"""   
 c3 = ['french' , 'chinese' , 'indian' ]
 for i in range(len(c3)):
     df1 = df[df['cuisine']== c3[i]]
     df = pd.concat([df,df1],ignore_index = True)
-
+    """
+len(df)
 #i = 1
 X_train = list()
 for i in range(len(df)):
