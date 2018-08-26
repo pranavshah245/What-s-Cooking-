@@ -76,7 +76,7 @@ model = OneVsRestClassifier(classifier, n_jobs=4)
 import xgboost as xgb
 
 params = {
-    # Parameters that we are going to tune.
+    
     'max_depth': 8, #Result of tuning with CV
     'eta':.03, #Result of tuning with CV
     'subsample': 1, #Result of tuning with CV
