@@ -60,7 +60,7 @@ classifier = SVC(C=100, # penalty parameter, setting it to a larger value
 	 			 degree=3, # default value, not tuned yet
 	 			 gamma=1, # kernel coefficient, not tuned yet
 	 			 coef0=1, # change to 1 from default value of 0.0
-	 			 shrinking=True, # using shrinking heuristics
+	 			 shrinking=True, 
 	 			 tol=0.001, # stopping criterion tolerance 
 	      		 probability=False, # no need to enable probability estimates
 	      		 cache_size=200, # 200 MB cache size
