@@ -73,12 +73,12 @@ model = OneVsRestClassifier(classifier, n_jobs=4)
 model.fit(X, y)
 
 # Predictions 
-print ("Predict on test data ... ")
+print ("Predicting on test data ... ")
 y_test = model.predict(X_test)
 y_pred = lb.inverse_transform(y_test)
 
 # Submission
-print ("Generate Submission File ... ")
+print ("Generating Submission File ... ")
 test_id = [doc['id'] for doc in test]
 sub = pd.DataFrame({'id': test_id, 'cuisine': y_pred}, columns=['id', 'cuisine'])
 sub.to_csv('svm_output.csv', index=False)
